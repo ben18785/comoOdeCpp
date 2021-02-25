@@ -1,0 +1,37 @@
+---
+title: "Initial simulations"
+output: html_notebook
+---
+
+```{r}
+rm(list=ls())
+library(comoOdeCpp)
+
+file_path <- "../comoOdeCpp/tests/testthat/data/templates_v16.4/Template_CoMoCOVID-19App_v17_r_v_cpp.xlsx"
+load("../data/data_CoMo.RData")
+source("../comoOdeCpp/tests/testthat/common.R")
+fit_mat <- read.table("../comoOdeCpp/tests/testthat/data/fit_mat.txt",header = T)
+source("../comoOdeCpp/tests/testthat/v16.4.core.mod.16.6.R")
+check_parameters_list_for_na(parameters)
+out_cpp <- ode(
+  y = Y, times = times, method = "euler", hini = 0.05,
+  func = covidOdeCpp, parms = parameters,
+  input = vectors0, A = A,
+  contact_home = contact_home,
+  contact_school = contact_school,
+  contact_work = contact_work,
+  contact_other = contact_other,
+  popbirth_col2 = popbirth[, 2],
+  popstruc_col2 = popstruc[, 2],
+  ageing = ageing,
+  ifr_col2 = ifr[, 2],
+  ihr_col2 = ihr[, 2],
+  mort_col = mort,
+  age_group_vectors = age_group_vectors
+)
+```
+
+```{r}
+
+```
+

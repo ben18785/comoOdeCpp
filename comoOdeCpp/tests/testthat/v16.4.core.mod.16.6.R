@@ -29,7 +29,7 @@
 # load("data_CoMo.RData")
 # file_path <- paste0(getwd(),"/Template_CoMoCOVID-19App_v17.xlsx")  
 country_name<-"United Kingdom of Great Britain"
-fit_mat <- read.table("data/fit_mat.txt",header = T)
+# fit_mat <- read.table("data/fit_mat.txt",header = T)
 
 
 # Cases
