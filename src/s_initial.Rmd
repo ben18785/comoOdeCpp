@@ -6,12 +6,16 @@ output: html_notebook
 ```{r}
 rm(list=ls())
 library(comoOdeCpp)
+library(dplyr)
+library(readxl)
+library(stringr)
+library(deSolve)
 
-file_path <- "../comoOdeCpp/tests/testthat/data/templates_v16.4/Template_CoMoCOVID-19App_v17_r_v_cpp.xlsx"
+file_path <- "../comoOdeCpp/tests/testthat/data/templates_v16.8/Template_CoMoCOVID-19App_v17_school_closure.xlsx"
 load("../data/data_CoMo.RData")
 source("../comoOdeCpp/tests/testthat/common.R")
 fit_mat <- read.table("../comoOdeCpp/tests/testthat/data/fit_mat.txt",header = T)
-source("../comoOdeCpp/tests/testthat/v16.4.core.mod.16.6.R")
+source("../comoOdeCpp/tests/testthat/inc/covidage_v16.8.R")
 check_parameters_list_for_na(parameters)
 out_cpp <- ode(
   y = Y, times = times, method = "euler", hini = 0.05,

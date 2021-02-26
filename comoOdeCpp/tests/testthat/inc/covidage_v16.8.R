@@ -34,7 +34,7 @@ if (!exists("country_name") || country_name == "") {
   country_name<-"United Kingdom of Great Britain"
 }
 # fit_mat <- read.table("fit_mat.txt",header = T)
-fit_mat <- read.table("data/fit_mat.txt",header = T)
+# fit_mat <- read.table("data/fit_mat.txt",header = T)
 
 
 # Cases
